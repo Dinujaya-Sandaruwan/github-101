@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Internship Registration</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .container {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        width: 100%;
+        max-width: 600px;
+        animation: slideUp 0.6s ease-out;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .header h1 {
+        color: #333;
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+
+      .header p {
+        color: #666;
+        font-size: 1.1rem;
+      }
+
+      .form-group {
+        margin-bottom: 25px;
+      }
+
+      .form-row {
+        display: flex;
+        gap: 20px;
+      }
+
+      .form-row .form-group {
+        flex: 1;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: #333;
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="date"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid #e1e5e9;
+        border-radius: 10px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: #f8f9fa;
+      }
+
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      input[type="tel"]:focus,
+      input[type="date"]:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #667eea;
+        background: white;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      }
+
+      select {
+        cursor: pointer;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      .checkbox-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        accent-color: #667eea;
+        cursor: pointer;
+      }
+
+      .checkbox-group label {
+        margin: 0;
+        cursor: pointer;
+        font-weight: normal;
+      }
+
+      .submit-btn {
+        width: 100%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 18px;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 20px;
+      }
+
+      .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+      }
+
+      .submit-btn:active {
+        transform: translateY(0);
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 30px 20px;
+          margin: 10px;
+        }
+
+        .header h1 {
+          font-size: 2rem;
+        }
+
+        .form-row {
+          flex-direction: column;
+          gap: 0;
+        }
+
+        .form-row .form-group {
+          margin-bottom: 25px;
+        }
+      }
+
+      .required {
+        color: #e74c3c;
+      }
+
+      .form-section {
+        margin-bottom: 35px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid #e1e5e9;
+      }
+
+      .form-section:last-child {
+        border-bottom: none;
+      }
+
+      .section-title {
+        color: #667eea;
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .section-title::before {
+        content: "";
+        width: 4px;
+        height: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Internship Registration</h1>
+        <p>Join our internship program and kickstart your career</p>
+      </div>
+
+      <form id="registrationForm" action="#" method="POST">
+        <div class="form-section">
+          <h3 class="section-title">Personal Information</h3>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName"
+                >First Name <span class="required">*</span></label
+              >
+              <input type="text" id="firstName" name="firstName" required />
+            </div>
+            <div class="form-group">
+              <label for="lastName"
+                >Last Name <span class="required">*</span></label
+              >
+              <input type="text" id="lastName" name="lastName" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email"
+                >Email Address <span class="required">*</span></label
+              >
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="phone"
+                >Phone Number <span class="required">*</span></label
+              >
+              <input type="tel" id="phone" name="phone" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="dateOfBirth"
+              >Date of Birth <span class="required">*</span></label
+            >
+            <input type="date" id="dateOfBirth" name="dateOfBirth" required />
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3 class="section-title">Academic Information</h3>
+
+          <div class="form-group">
+            <label for="university"
+              >University/College <span class="required">*</span></label
+            >
+            <input type="text" id="university" name="university" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="degree"
+                >Degree Program <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                id="degree"
+                name="degree"
+                placeholder="e.g., Computer Science, Business Administration"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="yearOfStudy"
+                >Year of Study <span class="required">*</span></label
+              >
+              <select id="yearOfStudy" name="yearOfStudy" required>
+                <option value="">Select Year</option>
+                <option value="1">1st Year</option>
+                <option value="2">2nd Year</option>
+                <option value="3">3rd Year</option>
+                <option value="4">4th Year</option>
+                <option value="graduate">Graduate</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="gpa">Current GPA</label>
+            <input type="text" id="gpa" name="gpa" placeholder="e.g., 3.75" />
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h3 class="section-title">Internship Preferences</h3>
+
+          <div class="form-group">
+            <label for="department"
+              >Preferred Department <span class="required">*</span></label
+            >
+            <select id="department" name="department" required>
+              <option value="">Select Department</option>
+              <option value="software-development">Software Development</option>
+              <option value="marketing">Marketing</option>
+              <option value="human-resources">Human Resources</option>
+              <option value="finance">Finance</option>
+              <option value="design">Design</option>
+              <option value="sales">Sales</option>
+              <option value="operations">Operations</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="startDate"
+                >Preferred Start Date <span class="required">*</span></label
+              >
+              <input type="date" id="startDate" name="startDate" required />
+            </div>
+            <div class="form-group">
+              <label for="duration"
+                >Duration (months) <span class="required">*</span></label
+              >
+              <select id="duration" name="duration" required>
+                <option value="">Select Duration</option>
+                <option value="1">1 month</option>
+                <option value="2">2 months</option>
+                <option value="3">3 months</option>
+                <option value="6">6 months</option>
+                <option value="12">12 months</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="experience">Relevant Experience & Skills</label>
+            <textarea
+              id="experience"
+              name="experience"
+              placeholder="Describe any relevant work experience, projects, or skills..."
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="motivation"
+              >Why do you want to join our internship program?
+              <span class="required">*</span></label
+            >
+            <textarea
+              id="motivation"
+              name="motivation"
+              placeholder="Tell us about your goals and what you hope to achieve..."
+              required
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="terms" name="terms" required />
+          <label for="terms"
+            >I agree to the
+            <a href="#" style="color: #667eea; text-decoration: none"
+              >terms and conditions</a
+            >
+            <span class="required">*</span></label
+          >
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="newsletter" name="newsletter" />
+          <label for="newsletter"
+            >I would like to receive updates about future opportunities</label
+          >
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Application</button>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("registrationForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Basic form validation
+          const requiredFields = this.querySelectorAll("[required]");
+          let isValid = true;
+
+          requiredFields.forEach((field) => {
+            if (!field.value.trim()) {
+              field.style.borderColor = "#e74c3c";
+              isValid = false;
+            } else {
+              field.style.borderColor = "#e1e5e9";
+            }
+          });
+
+          if (isValid) {
+            alert(
+              "Application submitted successfully! We will contact you soon."
+            );
+            // Here you would typically send the data to your server
+            // this.submit();
+          } else {
+            alert("Please fill in all required fields.");
+          }
+        });
+
+      // Real-time validation feedback
+      document.querySelectorAll("input, select, textarea").forEach((field) => {
+        field.addEventListener("blur", function () {
+          if (this.hasAttribute("required") && !this.value.trim()) {
+            this.style.borderColor = "#e74c3c";
+          } else {
+            this.style.borderColor = "#e1e5e9";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
