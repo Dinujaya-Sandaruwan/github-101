@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Internship Management Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h2><i class="fas fa-briefcase"></i> InternHub</h2>
+        <button class="toggle-btn" id="toggleBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <ul>
+          <li>
+            <a href="#" class="nav-link active" data-section="dashboard">
+              <i class="fas fa-chart-line"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link" data-section="interns">
+              <i class="fas fa-users"></i>
+              <span>Interns</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link" data-section="applications">
+              <i class="fas fa-file-alt"></i>
+              <span>Applications</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link" data-section="departments">
+              <i class="fas fa-building"></i>
+              <span>Departments</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link" data-section="reports">
+              <i class="fas fa-chart-bar"></i>
+              <span>Reports</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link" data-section="settings">
+              <i class="fas fa-cog"></i>
+              <span>Settings</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-left">
+          <h1 id="pageTitle">Dashboard</h1>
+          <p id="pageSubtitle">
+            Welcome back! Here's what's happening with your internships.
+          </p>
+        </div>
+        <div class="header-right">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search..." id="searchInput" />
+          </div>
+          <div class="user-menu">
+            <button class="notification-btn">
+              <i class="fas fa-bell"></i>
+              <span class="notification-badge">3</span>
+            </button>
+            <div class="user-profile">
+              <img
+                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face"
+                alt="Profile"
+                class="profile-img"
+              />
+              <span class="username">John Doe</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Content -->
+      <div class="content-section active" id="dashboard">
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon blue">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-info">
+              <h3 id="totalInterns">24</h3>
+              <p>Total Interns</p>
+              <span class="stat-change positive">+12% from last month</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon green">
+              <i class="fas fa-file-check"></i>
+            </div>
+            <div class="stat-info">
+              <h3 id="activeApplications">18</h3>
+              <p>Active Applications</p>
+              <span class="stat-change positive">+8% from last month</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon orange">
+              <i class="fas fa-building"></i>
+            </div>
+            <div class="stat-info">
+              <h3 id="departments">6</h3>
+              <p>Departments</p>
+              <span class="stat-change neutral">No change</span>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon purple">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="stat-info">
+              <h3 id="completedInternships">12</h3>
+              <p>Completed</p>
+              <span class="stat-change positive">+25% from last month</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts and Tables Row -->
+        <div class="dashboard-grid">
+          <!-- Chart Section -->
+          <div class="dashboard-card">
+            <div class="card-header">
+              <h3>Application Trends</h3>
+              <div class="card-actions">
+                <button class="btn-secondary">
+                  <i class="fas fa-download"></i>
+                </button>
+              </div>
+            </div>
+            <div class="chart-container">
+              <canvas id="applicationChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Recent Applications -->
+          <div class="dashboard-card">
+            <div class="card-header">
+              <h3>Recent Applications</h3>
+              <a href="#" class="view-all">View All</a>
+            </div>
+            <div class="table-container">
+              <table class="data-table" id="applicationsTable">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Data will be populated by JavaScript -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Activity Feed -->
+        <div class="dashboard-card">
+          <div class="card-header">
+            <h3>Recent Activity</h3>
+          </div>
+          <div class="activity-feed" id="activityFeed">
+            <!-- Activity items will be populated by JavaScript -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Other Sections (Hidden by default) -->
+      <div class="content-section" id="interns">
+        <div class="section-header">
+          <h2>Manage Interns</h2>
+          <button class="btn-primary">
+            <i class="fas fa-plus"></i> Add Intern
+          </button>
+        </div>
+        <div class="dashboard-card">
+          <p>Interns management section - Content to be implemented</p>
+        </div>
+      </div>
+
+      <div class="content-section" id="applications">
+        <div class="section-header">
+          <h2>Applications</h2>
+          <button class="btn-primary">
+            <i class="fas fa-filter"></i> Filter
+          </button>
+        </div>
+        <div class="dashboard-card">
+          <p>Applications section - Content to be implemented</p>
+        </div>
+      </div>
+
+      <div class="content-section" id="departments">
+        <div class="section-header">
+          <h2>Departments</h2>
+          <button class="btn-primary">
+            <i class="fas fa-plus"></i> Add Department
+          </button>
+        </div>
+        <div class="dashboard-card">
+          <p>Departments section - Content to be implemented</p>
+        </div>
+      </div>
+
+      <div class="content-section" id="reports">
+        <div class="section-header">
+          <h2>Reports</h2>
+          <button class="btn-primary">
+            <i class="fas fa-download"></i> Generate Report
+          </button>
+        </div>
+        <div class="dashboard-card">
+          <p>Reports section - Content to be implemented</p>
+        </div>
+      </div>
+
+      <div class="content-section" id="settings">
+        <div class="section-header">
+          <h2>Settings</h2>
+        </div>
+        <div class="dashboard-card">
+          <p>Settings section - Content to be implemented</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="dashboard.js"></script>
+  </body>
+</html>
